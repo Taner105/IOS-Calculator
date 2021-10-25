@@ -63,6 +63,9 @@ body{
     color: #fff;
     border: none;
 }
+.num:hover{
+    border: 1px solid white;
+}
 .numbers{
     padding: 10px;
     
@@ -91,11 +94,7 @@ body{
     color: #fff;
     border: none;
 }
-.operators{
-    /* border: 1px solid red; */
 
-   
-}
 .sar{
     display: flex;
     
