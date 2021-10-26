@@ -1,5 +1,5 @@
 let numbers = document.getElementsByClassName("num");
-let result1 = document.querySelector(".resultBay");
+let result1 = document.getElementById("resultBay");
 let signs = document.getElementsByClassName("sign");
 let operators = document.getElementsByClassName("operator");
 let equals = document.getElementById("equals");
@@ -39,7 +39,7 @@ function yazdir(){
 equals.addEventListener("click", islem);
 
 function islem() {
-    
+
 }
 
 
