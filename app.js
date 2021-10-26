@@ -3,6 +3,9 @@ let result1 = document.querySelector(".resultBay");
 let signs = document.getElementsByClassName("sign");
 let operators = document.getElementsByClassName("operator");
 let equals = document.getElementById("equals");
+let silinecek = document.getElementById("sil");
+let okay = document.getElementById("ok");
+
 
 // ---------------NUMBERS-----------
 
@@ -33,8 +36,25 @@ function yazdir(){
     result1.innerHTML += this.value 
 }
 
-equals.addEventListener("click", eşittirSonuc);
+equals.addEventListener("click", islem);
 
-function eşittirSonuc() {
-    result1.innerHTML = eval(result1.class);
+function islem() {
+    
+}
+
+
+
+
+// -----------AC KOMPLE SİL---------
+
+silinecek.addEventListener("click", siler);
+
+function siler() {
+    result1.innerHTML = "";
+}
+
+okay.addEventListener("click",teksil);
+
+function teksil() {
+    result1.textContent = "";
 }
