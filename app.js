@@ -1,60 +1,55 @@
-let numbers = document.getElementsByClassName("num");
-let result1 = document.getElementById("resultBay");
-let signs = document.getElementsByClassName("sign");
-let operators = document.getElementsByClassName("operator");
-let equals = document.getElementById("equals");
-let silinecek = document.getElementById("sil");
-let okay = document.getElementById("ok");
+window.onload = function(){
+    var secılenOperator = "";
+    var left = "";
+    var right = "";
 
+    var numbers = document.getElementsByClassName("num");
+    for(var i = 0; i < numbers.length; i++){
+        numbers[i].addEventListener("click", function(){
+            document.getElementById("resultBay").innerHTML += this.value;
 
-// ---------------NUMBERS-----------
-
-for (var i = 0; i < numbers.length; i++){
-    numbers[i].addEventListener("click", yazdir)
-}
-function yazdir(){
-    result1.innerHTML += this.value 
-}
-
-
-// ---------------SİGNS--------------
-
-for (var i = 0; i < signs.length; i++){
-    signs[i].addEventListener("click", yazdir)
-}
-function yazdir(){
-    result1.innerHTML += this.value 
-}
-// --------------OPERATORS-------------
-
-for (var i = 0; i < operators.length; i++){
-    if (i != 4){
-    operators[i].addEventListener("click", yazdir)
+            if(secılenOperator == ""){
+                left += this.value; 
+            }
+            else if (secılenOperator != ""){
+                right += this.value
+            }
+        },false)
+        
     }
-}
-function yazdir(){
-    result1.innerHTML += this.value 
-}
 
-equals.addEventListener("click", islem);
+    var operators = document.getElementsByClassName("operator");
+    for(var i = 0; i < numbers.length; i++){
+        operators[i].addEventListener("click", function(){
+            document.getElementById("resultBay").innerHTML += this.value;
+            secılenOperator += this.value;
 
-function islem() {
+            
+        },false);
+        
+    }
+    document.getElementById("equals").addEventListener("click", function(){
+        if(secılenOperator == "+"){
+            document.getElementById("resultBay").innerHTML = parseInt(left) + parseInt(right);
+        }
+        else if(secılenOperator == "-"){
+            document.getElementById("resultBay").innerHTML = parseInt(left) - parseInt(right);
+        }
+        else if(secılenOperator == "*"){
+            document.getElementById("resultBay").innerHTML = parseInt(left) * parseInt(right);
+        }
+        else if(secılenOperator == "/"){
+            document.getElementById("resultBay").innerHTML = parseInt(left) / parseInt(right);
+        }
 
-}
+    },false);
 
+    document.getElementById("sil").addEventListener("click", function(){
+       
+        document.getElementById("resultBay").innerHTML = "";
+    
+    },false);
+   
 
-
-
-// -----------AC KOMPLE SİL---------
-
-silinecek.addEventListener("click", siler);
-
-function siler() {
-    result1.innerHTML = "";
-}
-
-okay.addEventListener("click",teksil);
-
-function teksil() {
-    result1.textContent = "";
-}
+   
+};
